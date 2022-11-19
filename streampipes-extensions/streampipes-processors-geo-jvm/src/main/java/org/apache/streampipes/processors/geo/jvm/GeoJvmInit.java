@@ -29,8 +29,8 @@ import org.apache.streampipes.messaging.jms.SpJmsProtocolFactory;
 import org.apache.streampipes.messaging.kafka.SpKafkaProtocolFactory;
 import org.apache.streampipes.messaging.mqtt.SpMqttProtocolFactory;
 import org.apache.streampipes.processors.geo.jvm.config.ConfigKeys;
+import org.apache.streampipes.processors.geo.jvm.jts.processor.epsg.EpsgProcessor;
 import org.apache.streampipes.processors.geo.jvm.jts.processor.latLngToGeo.LatLngToGeoController;
-import org.apache.streampipes.processors.geo.jvm.jts.processor.setEPSG.SetEpsgController;
 import org.apache.streampipes.processors.geo.jvm.jts.processor.trajectory.CreateTrajectoryFromPointsController;
 import org.apache.streampipes.processors.geo.jvm.processor.distancecalculator.DistanceCalculatorController;
 import org.apache.streampipes.processors.geo.jvm.processor.geocoder.GoogleMapsGeocodingController;
@@ -52,7 +52,7 @@ public class GeoJvmInit extends StandaloneModelSubmitter {
                     new GoogleMapsGeocodingController(),
                     new StaticGoogleMapsGeocodingController(),
                     new ReverseGeocodingController(),
-                    new SetEpsgController(),
+                    new EpsgProcessor(),
                     new LatLngToGeoController(),
                     new CreateTrajectoryFromPointsController(),
                     new SpeedCalculatorController(),
