@@ -27,13 +27,14 @@
 
 ## Description
 
-This processor adds ab integer value to the stream. This integer value represents
-an [EPSG Code](https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset) as an Spatial Reference System Identifier [(SRID)](https://en.wikipedia.org/wiki/Spatial_reference_system#Identifier).
+This processor adds an integer value to the event. This integer value represents
+an  <a href="https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset" target="_blank">EPSG Code</a> as an Spatial Reference System Identifier
+an  <a href="https://en.wikipedia.org/wiki/Spatial_reference_system#Identifier" target="_blank">(SRID)</a>.
 
 
 ***
 
-## Required input
+## Required inputs
 
 None
 
@@ -41,13 +42,17 @@ None
 
 ## Configuration
 
-Integer values, representing a spatial reference system [(SRS)](https://en.wikipedia.org/wiki/Spatial_reference_system#Identifier).  Other possible values can be looked up under https://spatialreference.org/ref/epsg/.
+Integer values, representing a spatial reference system
+<a href="https://en.wikipedia.org/wiki/Spatial_reference_system#Identifier" target="_blank">SRID</a>.
+Other possible values can be looked up via
+<a href="https://spatialreference.org/ref/epsg/" target="_blank">spatialreference.org</a>.
 
 ### Parameter
 
-4- to 5-digit key integer number. Default value is 4326 representing the World Geodetic System [(WGS84)](https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84).
+4- to 5-digit key integer number. Default value is 4326 representing the World Geodetic System
+<a href="https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84" target="_blank">(WGS84)</a>.
 
 ***
 ## Output
 
-Adds a number to the event.
+Adds the epsg number to the event.
