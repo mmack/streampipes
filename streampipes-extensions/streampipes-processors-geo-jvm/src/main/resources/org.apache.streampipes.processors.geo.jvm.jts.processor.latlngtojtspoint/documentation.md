@@ -26,7 +26,7 @@
 
 ## Description
 
-This processor creates a  JTS Point geometry from  latitude and longitude value.
+This processor creates a JTS Point geometry from  latitude and longitude value.
 
 ***
 
