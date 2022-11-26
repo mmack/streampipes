@@ -20,4 +20,8 @@ RUN apt-get update && apt-get install ttf-dejavu-core && apt-get install fontcon
 
 COPY target/streampipes-extensions-all-jvm.jar  /streampipes-extensions-all-jvm.jar
 
+RUN useradd java && chown /streampipes-extensions-all-jvm.jar java:java
+
+USER java
+
 ENTRYPOINT ["java", "-jar", "/streampipes-extensions-all-jvm.jar"]

@@ -1,0 +1,7 @@
+releases:
+  - name: consul
+    chart: bitnami/consul
+    version: 10.9.5
+    values:
+      - values.yaml
+      - custom.yaml.gotmpl

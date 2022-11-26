@@ -1,0 +1,7 @@
+releases:
+  - name: streampipes
+    chart: ./charts/streampipes
+    version: 0.1.0
+    values:
+      - values.yaml
+      - custom.yaml.gotmpl

@@ -1,0 +1,23 @@
+# Example Rollbinding for vmware tanzu clusters.
+# We map all Service Accounts to the vmware-system-restricted Cluster role
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: streampipes
+roleRef:
+  kind: ClusterRole
+  name: psp:vmware-system-restricted
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: streampipes
+- kind: ServiceAccount
+  name: default
+- kind: ServiceAccount
+  name: couchdb-couchdb
+- kind: ServiceAccount
+  name: kafka
+- kind: ServiceAccount
+  name: influxdb

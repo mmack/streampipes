@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: extensions-all-jvm
+spec:
+  selector:
+    matchLabels:
+      app: extensions-all-jvm
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: extensions-all-jvm
+    spec:
+      # volumes:
+      #   - name: files-pv
+      #     persistentVolumeClaim:
+      #       claimName: files-pvc
+      containers:
+        - name: extensions-all-jvm
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: {{ .Values.image.repository }}/extensions-all-jvm:{{ .Values.image.tag }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8090
+          env:
+            - name: CONSUL_LOCATION
+              value: consul-headless
+#           volumeMounts:
+#             - mountPath: "/spImages"
+#               name: extensions-all-jvm-files-pvc
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   labels:
+#     app: extensions-all-jvm
+#   name: extensions-all-jvm-files-pvc
+# spec:
+#   storageClassName: local-storage-files
+#   accessModes: ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 250Mi

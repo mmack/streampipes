@@ -1,0 +1,27 @@
+repositories:
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
+  - name: couchdb
+    url:  https://apache.github.io/couchdb-helm
+
+helmfiles:
+  - path: applications/streampipes/helmfile.yaml
+    values:
+      - {{ toYaml .Environment.Values | nindent 8 }}
+  - path: applications/consul/helmfile.yaml
+    values:
+      - {{ toYaml .Environment.Values | nindent 8 }}
+  - path: applications/couchdb/helmfile.yaml
+    values:
+      - {{ toYaml .Environment.Values | nindent 8 }}
+  - path: applications/kafka/helmfile.yaml
+    values:
+      - {{ toYaml .Environment.Values | nindent 8 }}
+  - path: applications/influxdb/helmfile.yaml
+    values:
+      - {{ toYaml .Environment.Values | nindent 8 }}
+
+environments:
+  default:
+    values:
+      - environments/default/values.yaml

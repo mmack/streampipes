@@ -1,0 +1,10 @@
+releases:
+  - name: couchdb
+    #chart: couchdb/couchdb
+    #chart: /home/mmack/workspace/mmack/couchdb-helm/couchdb
+    chart: git::https://github.com/mmack/couchdb-helm.git@/couchdb?ref=add-container-SecurityContext
+    # git::https://gitlab.com/org/repository-name.git@/config/config.test.yaml?ref=main
+    version: 3.6.2
+    values:
+      - values.yaml
+      - custom.yaml.gotmpl

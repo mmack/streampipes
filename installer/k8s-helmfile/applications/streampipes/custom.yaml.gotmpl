@@ -1,0 +1,21 @@
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-x1
+    #nginx.ingress.kubernetes.io/use-regex: "true"
+    #nginx.ingress.kubernetes.io/rewrite-target: /$1
+  hosts:
+    - host: {{ .Values.domain }}
+      paths:
+        - path: /streampipes-backend
+          pathType: ImplementationSpecific
+          service: streampipes-backend
+        - path: /
+          pathType: ImplementationSpecific
+          service: streampipes-ui
+  tls:
+    - secretName: streampipes
+      hosts:
+       - {{ .Values.domain }}

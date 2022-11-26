@@ -1,0 +1,9 @@
+clusterSize: {{ .Values.couchdb.replicas }}
+allowAdminParty: {{ .Values.couchdb.adminParty }}
+persistentVolume:
+  enabled: {{ .Values.couchdb.persistence }}
+image:
+  tag: {{ .Values.couchdb.image.tag }}
+couchdbConfig:
+  couchdb:
+    uuid: {{ .Values.couchdb.couchdbConfig.couchdb.uuid }}
