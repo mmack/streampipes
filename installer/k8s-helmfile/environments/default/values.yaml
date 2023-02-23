@@ -1,12 +1,14 @@
-domain: #domain
+domain: streampipes-default.test.com
 consul:
   replicas: 1
 couchdb:
   image:
-    tag: 2.3.1
+    tag: 3.3.1
+  adminUsername: admin
+  adminPassword: admin
   replicas: 1
   persistence: true
-  adminParty: true
+  adminParty: false
   couchdbConfig:
     couchdb:
       uuid: 502f5f7d-05f0-42ac-befa-7c5567387594

@@ -1,6 +1,7 @@
 releases:
   - name: influxdb
     chart: bitnami/influxdb
-    version: 1.1.8
+    version: 5.4.14
     values:
       - values.yaml
+      - custom.yaml.gotmpl

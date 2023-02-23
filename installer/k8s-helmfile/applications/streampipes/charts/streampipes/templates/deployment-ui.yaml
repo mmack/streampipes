@@ -29,15 +29,15 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}-ui
-          securityContext:
-            capabilities:
-              drop:
-              - ALL
-            readOnlyRootFilesystem: false
-            runAsNonRoot: true
-            runAsUser: 101
+          # securityContext:
+          #   capabilities:
+          #     drop:
+          #     - ALL
+          #   readOnlyRootFilesystem: false
+          #   runAsNonRoot: true
+          #   runAsUser: 101
           #image: "{{ .Values.image.repository }}/ui:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          image: mmack/streampipes-ui:0.90.0
+          image: mmack/streampipes-ui:0.91.0-SNAPSHOT
           #command: ["sleep", "10000"]
           #imagePullPolicy: {{ .Values.image.pullPolicy }}
           imagePullPolicy: Always
